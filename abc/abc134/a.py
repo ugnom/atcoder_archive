@@ -1,2 +1,4 @@
 words = lambda t : list(map(t, input().split()))
-n,a,b = words(int)
+r = int(input())
+
+print(3 * (r**2))
