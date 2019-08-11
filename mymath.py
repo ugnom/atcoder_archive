@@ -52,3 +52,24 @@ def modpow(a,b,mod):
         return (h * h) % mod
     else:
         return (a * modpow(a, b-1, mod)) % mod
+
+# 上限をm、果物の種類をn（振ったさいころの数）、総和をt
+def upper_limited_dup_comb(n: int, m: int, t: int) -> int:
+    ans = 0
+    for k in range((t-n) // m + 1 ):
+        #print(k)
+        ans += (-1)**k * comb(n,k) * dup_comb(n,t-n-m*k)
+        #ans %= 10**9 + 7
+    return ans
+
+def comb(n,k):
+    ans = 1
+    div = 1
+    for i in range(k):
+        ans *= n-i
+        div *= i+1
+    #print("conb:", n, k, ans // div)
+    return (ans // div) # % (10**9 + 7)
+
+def dup_comb(n,r):
+    return comb(n+r-1, r)
