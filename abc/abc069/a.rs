@@ -13,7 +13,6 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let s = get_one();
-    let ans = s;
-    println!("{}", ans);
+    let v : Vec<i32> = get_vec();
+    println!("{}", (v[0]-1) * (v[1]-1));
 }

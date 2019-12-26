@@ -13,7 +13,14 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let s = get_one();
-    let ans = s;
+    let x : i32 = get_one();
+    let mut ans = 1;
+    let v = [2,4,8,16,32,64];
+    for p in v.iter() {
+        if x < *p {
+            break;
+        }
+        ans = *p;
+    }
     println!("{}", ans);
 }

@@ -13,7 +13,7 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let s = get_one();
-    let ans = s;
+    let s : String = get_one();
+    let ans = "ABC".to_string() + &s;
     println!("{}", ans);
 }

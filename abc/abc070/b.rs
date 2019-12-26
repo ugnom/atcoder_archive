@@ -1,10 +1,6 @@
 use std::str::FromStr;
-
-fn get_one<T : FromStr>() -> T {
-    let mut s = String::new();
-    std::io::stdin().read_line(&mut s).ok();
-    return s.trim().parse().ok().unwrap();
-}
+use std::cmp::max;
+use std::cmp::min;
 
 fn get_vec<T : FromStr>() -> Vec<T> {
     let mut s = String::new();
@@ -13,7 +9,7 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let s = get_one();
-    let ans = s;
-    println!("{}", ans);
+    let v : Vec<i32> = get_vec();
+    println!("{}", max(0,min(v[1],v[3]) - max(v[0],v[2])));
+
 }

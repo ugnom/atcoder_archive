@@ -13,7 +13,8 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let s = get_one();
-    let ans = s;
-    println!("{}", ans);
+    let s : String = get_one();
+    let n = s.len();
+    let s_ind = s.chars().collect::<Vec<char>>();
+    println!("{}{}{}", s_ind[0], n-2, s_ind[n-1]);
 }
