@@ -13,11 +13,7 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let v : Vec<i32> = get_vec();
-    if v[0] % 3 == 0 || v[1] % 3 == 0 || (v[0] + v[1]) % 3 == 0 {
-        println!("{}", "Possible")
-    }
-    else {
-        println!("{}", "Impossible")
-    }
+    let mut v : Vec<i32> = get_vec();
+    v.sort();
+    println!("{}", v[0]+v[1]);
 }

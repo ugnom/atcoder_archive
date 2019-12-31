@@ -13,11 +13,16 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let v : Vec<i32> = get_vec();
-    if v[0] % 3 == 0 || v[1] % 3 == 0 || (v[0] + v[1]) % 3 == 0 {
-        println!("{}", "Possible")
+    let xs : Vec<usize> = get_vec();
+    let _n = xs[0];
+    let k = xs[1];
+    let mut v : Vec<i32> = get_vec();
+
+    v.sort();
+    v.reverse();
+    let mut ans = 0;
+    for i in 0..k {
+        ans += v[i];
     }
-    else {
-        println!("{}", "Impossible")
-    }
+    println!("{}", ans);
 }

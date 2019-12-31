@@ -1,4 +1,5 @@
 use std::str::FromStr;
+use std::cmp::max;
 
 fn get_one<T : FromStr>() -> T {
     let mut s = String::new();
@@ -13,11 +14,6 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let v : Vec<i32> = get_vec();
-    if v[0] % 3 == 0 || v[1] % 3 == 0 || (v[0] + v[1]) % 3 == 0 {
-        println!("{}", "Possible")
-    }
-    else {
-        println!("{}", "Impossible")
-    }
+    let v : Vec<i64> = get_vec();
+    println!("{} {}", max(0,v[0]-v[2]), max(0, v[1] - max(0, v[2]-v[0])));
 }

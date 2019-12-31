@@ -13,11 +13,20 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let v : Vec<i32> = get_vec();
-    if v[0] % 3 == 0 || v[1] % 3 == 0 || (v[0] + v[1]) % 3 == 0 {
-        println!("{}", "Possible")
+    let s : String = get_one();
+    let si : Vec<char> = s.chars().collect();
+    let mut ans = 0;
+    for i in 1..(s.len() / 2) {
+        let mut is_even = true;
+        for j in 0..i {
+            if si[j] != si[i+j] {
+                is_even = false;
+                break;
+            }
+        }
+        if is_even {
+            ans = i;
+        }
     }
-    else {
-        println!("{}", "Impossible")
-    }
+    println!("{}", ans*2);
 }
