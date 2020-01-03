@@ -13,14 +13,18 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let ss : Vec<String> = get_vec();
-    let s : String = ss[0].to_string();
-    let t : String = ss[1].to_string();
-    let u : String = ss[2].to_string();
-
-    let mut ans : String = s.to_uppercase().chars().nth(0).unwrap().to_string();
-    ans.push(t.to_uppercase().chars().nth(0).unwrap());
-    ans.push(u.to_uppercase().chars().nth(0).unwrap());
+    let v : Vec<i32> = get_vec();
+    let k = v[0];
+    let s = v[1];
+    let mut ans = 0;
+    for i in 0..(k+1) {
+        for j in 0..(k+1) {
+            if i + j + k >= s && i + j <= s {
+                //println!("{} {}", i, j);
+                ans += 1;
+            }
+        }
+    }
 
     println!("{}", ans);
 }

@@ -13,14 +13,15 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let ss : Vec<String> = get_vec();
-    let s : String = ss[0].to_string();
-    let t : String = ss[1].to_string();
-    let u : String = ss[2].to_string();
-
-    let mut ans : String = s.to_uppercase().chars().nth(0).unwrap().to_string();
-    ans.push(t.to_uppercase().chars().nth(0).unwrap());
-    ans.push(u.to_uppercase().chars().nth(0).unwrap());
-
+    let mut v : Vec<i32> = get_vec();
+    if v[0] == 1 { v[0] = 14; }
+    if v[1] == 1 { v[1] = 14; }
+    let mut ans = "Draw";
+    if v[0] > v[1]{
+        ans = "Alice";
+    }
+    else if v[0] < v[1] {
+        ans = "Bob";
+    }
     println!("{}", ans);
 }

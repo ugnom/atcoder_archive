@@ -13,14 +13,9 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let ss : Vec<String> = get_vec();
-    let s : String = ss[0].to_string();
-    let t : String = ss[1].to_string();
-    let u : String = ss[2].to_string();
+    let v : Vec<String> = get_vec();
+    let a : i32 = v[0].parse().ok().unwrap();
+    let b : i32 = v[2].parse().ok().unwrap();
+    println!("{}", if v[1] == "+" { a+b } else { a-b });
 
-    let mut ans : String = s.to_uppercase().chars().nth(0).unwrap().to_string();
-    ans.push(t.to_uppercase().chars().nth(0).unwrap());
-    ans.push(u.to_uppercase().chars().nth(0).unwrap());
-
-    println!("{}", ans);
 }

@@ -13,14 +13,18 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let ss : Vec<String> = get_vec();
-    let s : String = ss[0].to_string();
-    let t : String = ss[1].to_string();
-    let u : String = ss[2].to_string();
-
-    let mut ans : String = s.to_uppercase().chars().nth(0).unwrap().to_string();
-    ans.push(t.to_uppercase().chars().nth(0).unwrap());
-    ans.push(u.to_uppercase().chars().nth(0).unwrap());
-
-    println!("{}", ans);
+    let _n : usize = get_one();
+    let s : Vec<char> = get_one::<String>().chars().collect();
+    let mut ans = 0;
+    let mut max_a = 0;
+    for c in s {
+        if c == 'I' {
+            ans += 1;
+        }
+        else {
+            ans -= 1;
+        }
+        max_a = std::cmp::max(max_a, ans);
+    }
+    println!("{}", max_a);
 }

@@ -13,7 +13,37 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let mut v : Vec<i32> = get_vec();
-    v.sort();
-    println!("{}", v[0]+v[1]);
+    let s : String = get_one();
+    let t : String = get_one();
+
+    let ss : Vec<char> = s.chars().rev().collect();
+    let tt : Vec<char> = t.chars().rev().collect();
+
+    if ss.len() > tt.len() {
+        println!("{}", "GREATER");
+    }
+    else if ss.len() < tt.len() {
+        println!("{}", "LESS");
+    }
+    else {
+        let n = std::cmp::min(ss.len(), tt.len());
+        let mut prev_greater = 0;
+        for i in 0..n {
+            if ss[i] > tt[i] {
+                prev_greater = 1;
+            }
+            else if ss[i] < tt[i] {
+                prev_greater = -1;
+            }
+        }
+        if prev_greater == 0 {
+            println!("{}", "EQUAL");
+        }
+        else if prev_greater == 1 {
+            println!("{}", "GREATER");
+        }
+        else {
+            println!("{}", "LESS");
+        }
+    }
 }

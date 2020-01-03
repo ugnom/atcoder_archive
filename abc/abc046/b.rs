@@ -1,4 +1,6 @@
 use std::str::FromStr;
+use std::cmp::max;
+use std::cmp::min;
 
 fn get_one<T : FromStr>() -> T {
     let mut s = String::new();
@@ -13,14 +15,6 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let ss : Vec<String> = get_vec();
-    let s : String = ss[0].to_string();
-    let t : String = ss[1].to_string();
-    let u : String = ss[2].to_string();
-
-    let mut ans : String = s.to_uppercase().chars().nth(0).unwrap().to_string();
-    ans.push(t.to_uppercase().chars().nth(0).unwrap());
-    ans.push(u.to_uppercase().chars().nth(0).unwrap());
-
-    println!("{}", ans);
+    let v : Vec<i64> = get_vec();
+    println!("{}", v[1] * (v[1]-1).pow((v[0] - 1) as u32));
 }

@@ -13,14 +13,16 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let ss : Vec<String> = get_vec();
-    let s : String = ss[0].to_string();
-    let t : String = ss[1].to_string();
-    let u : String = ss[2].to_string();
+    let v : Vec<i32> = get_vec();
+    let a : i32 = v[0];
+    let b : i32 = v[1];
+    let c : i32 = v[2];
 
-    let mut ans : String = s.to_uppercase().chars().nth(0).unwrap().to_string();
-    ans.push(t.to_uppercase().chars().nth(0).unwrap());
-    ans.push(u.to_uppercase().chars().nth(0).unwrap());
+    if b-a == c-b {
+        println!("{}", "YES");
+    }
+    else {
+        println!("{}", "NO");
+    }
 
-    println!("{}", ans);
 }

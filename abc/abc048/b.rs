@@ -13,14 +13,17 @@ fn get_vec<T : FromStr>() -> Vec<T> {
 }
 
 fn main() {
-    let ss : Vec<String> = get_vec();
-    let s : String = ss[0].to_string();
-    let t : String = ss[1].to_string();
-    let u : String = ss[2].to_string();
+    let v : Vec<usize> = get_vec();
+    let h : usize = v[0];
+    let _w : usize = v[1];
+    let mut im : Vec<String> = Vec::new();
+    for _i in 0..h {
+        let s : String = get_one();
+        im.push(s);
+    }
 
-    let mut ans : String = s.to_uppercase().chars().nth(0).unwrap().to_string();
-    ans.push(t.to_uppercase().chars().nth(0).unwrap());
-    ans.push(u.to_uppercase().chars().nth(0).unwrap());
-
-    println!("{}", ans);
+    for s in im {
+        println!("{}", s);
+        println!("{}", s);
+    }
 }
