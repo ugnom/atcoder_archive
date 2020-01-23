@@ -12,6 +12,15 @@ fn get_vec<T : FromStr>() -> Vec<T> {
     return s.trim().split_whitespace().map(|e| e.parse().ok().unwrap()).collect();
 }
 
+fn get_vec_by_lines<T : FromStr>(n : usize) -> Vec<T> {
+    let mut v : Vec<T> = Vec::new();
+    for _i in 0..n {
+        let x : T = get_one();
+        v.push(x);
+    }
+    return v;
+}
+
 fn main() {
     let s = get_one();
     let ans = s;
